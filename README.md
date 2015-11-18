@@ -9,8 +9,10 @@ mesos features are working properly for Spark. Ideally these tests should be run
 * Start the docker mesos cluster with HDFS
 ```sh
 cd mesos-docker
-./run/run.sh --with-hdfs
+./run/run.sh
 ```
+
+This will start a mesos cluster with 2 slave nodes and HDFS
 
 Note: At the end this will generate an **mit-application.conf** file that we can use to 
 run the tests.
