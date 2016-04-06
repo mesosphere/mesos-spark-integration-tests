@@ -115,13 +115,7 @@ mit := Def.inputTaskDyn {
 dcos := Def.inputTaskDyn {
  val args: Seq[String] = spaceDelimited("<arg>").parsed
 
- if(args.size != 1) {
-  val log = streams.value.log
-  log.error("Please provide all the args: <dcos-url>")
-  sys.error("failed")
- }
-
- val dcosURL = args(0)
+ val dcosURL = "placeholder"
 
  //depends on assembly task to package the current project
  val output = assembly.value
