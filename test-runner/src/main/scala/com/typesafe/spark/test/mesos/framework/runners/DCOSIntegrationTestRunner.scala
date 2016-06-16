@@ -15,9 +15,10 @@ object DCOSIntegrationTestRunner {
     printMsg("TestResults:")
     println(result)
 
-    // TODO: Generate some JUnit style report for CI
-    if (result.contains("FAILED")) {
-      System.err.println("Tests failed")
+    if (result.contains("All tests passed")) {
+      System.err.println("Test suite - PASS")
+    } else {
+      System.err.println("Test suite - FAIL")
       System.exit(1)
     }
   }
