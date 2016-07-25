@@ -36,7 +36,7 @@ object DCOSUtils {
     val submitArgs = s"--class com.typesafe.spark.test.mesos.framework.runners.SparkJobRunner " ++
       s"${jarURI} " ++ sparkJobRunnerArgs
 
-    val cmd: Seq[String] = Seq("dcos", "spark", "run", s"--submit-args=${submitArgs}")
+    val cmd: Seq[String] = Seq("dcos", "--log-level=DEBUG", "spark", "--verbose", "run", s"--submit-args=${submitArgs}")
 
     printMsg(s"Running command: ${cmd.mkString(" ")}")
     val proc = Process(cmd, None)
