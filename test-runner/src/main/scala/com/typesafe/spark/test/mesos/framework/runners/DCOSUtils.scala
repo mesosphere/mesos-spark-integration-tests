@@ -12,7 +12,11 @@ object DCOSUtils {
     while (!completed) {
       val stdout = "dcos task --completed" !!
 
-      if (stdout.contains(submissionId)) {
+      val submissionLine = (s".*${submissionId}.*").r
+      val match_ = submissionLine.findFirstIn(stdout)
+
+      // match is found, and task is not running
+      if (match_.exists(!_.contains(" R "))) {
         completed = true
       } else {
         Thread.sleep(5000)
