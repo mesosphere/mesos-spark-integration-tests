@@ -2,9 +2,6 @@ package com.typesafe.spark.test.mesos.framework.runners
 
 import java.net.{InetAddress, Socket}
 
-import com.typesafe.spark.test.mesos.SparkJobSpec
-import org.scalatest.{Filter, Args}
-
 case class RoleConfigInfo(role: String, attributes: String, roleCpus: String)
 
 class MyStdOut

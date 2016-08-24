@@ -44,9 +44,12 @@ object DCOSUtils {
 
     printMsg(s"Running command: ${cmd.mkString(" ")}")
     val proc = Process(cmd, None)
-    val output = proc !!
 
-    printMsg(output)
+    var output = ""
+    proc.lineStream.foreach { line =>
+      output += line + "\n"
+    }
+    println(output)
 
     val idRegex = """Submission id: (\S+)""".r
     val submissionId = idRegex.findFirstMatchIn(output).get.group(1)
