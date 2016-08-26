@@ -15,6 +15,7 @@ object DCOSClusterModeRunner {
   def run(applicationJarPath : String)(implicit config: Config): String = {
     uploadToS3(applicationJarPath)
 
+
     val basename = FilenameUtils.getBaseName(applicationJarPath)
     val extension = FilenameUtils.getExtension(applicationJarPath)
     val S3_BUCKET = config.getString("aws.s3.bucket")

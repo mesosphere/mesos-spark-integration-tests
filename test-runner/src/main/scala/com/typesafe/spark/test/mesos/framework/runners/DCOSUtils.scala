@@ -16,7 +16,7 @@ object DCOSUtils {
       val match_ = submissionLine.findFirstIn(stdout)
 
       // match is found, and task is not running
-      if (match_.exists(!_.contains(" R "))) {
+      if (match_.exists(line => !line.contains(" R ") && !line.contains(" S "))) {
         completed = true
       } else {
         Thread.sleep(5000)
